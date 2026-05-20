@@ -1,0 +1,290 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string[]",
+						"name": "_candidateNames",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "CandidateAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "candidateName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "candidateIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "VoteCasted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "addCandidate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "candidates",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "voteCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "getCandidate",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "voteCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCandidateCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWinner",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "winnerName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "winnerVotes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasVoted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_candidateIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addCandidate(string)": {
+					"params": {
+						"_name": "Name of the new candidate."
+					}
+				},
+				"constructor": {
+					"params": {
+						"_candidateNames": "Array of candidate names (e.g., [\"Vincent\",\"Junior\",\"Ruto\"])"
+					}
+				},
+				"getCandidate(uint256)": {
+					"params": {
+						"_index": "The candidate index."
+					},
+					"returns": {
+						"name": "The candidate's name.",
+						"voteCount": "How many votes this candidate received."
+					}
+				},
+				"getWinner()": {
+					"returns": {
+						"winnerName": "The name of the winning candidate.",
+						"winnerVotes": "The number of votes the winner received."
+					}
+				},
+				"vote(uint256)": {
+					"params": {
+						"_candidateIndex": "The index of the candidate in the `candidates` array."
+					}
+				}
+			},
+			"title": "A simple voting system",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addCandidate(string)": {
+					"notice": "Allows the owner to add a new candidate after deployment."
+				},
+				"constructor": {
+					"notice": "Constructor – sets the contract owner and adds initial candidates."
+				},
+				"getCandidate(uint256)": {
+					"notice": "Returns candidate details by index."
+				},
+				"getCandidateCount()": {
+					"notice": "Returns the total number of candidates."
+				},
+				"getWinner()": {
+					"notice": "Returns the current winner (candidate with most votes)."
+				},
+				"vote(uint256)": {
+					"notice": "Cast a vote for a specific candidate."
+				}
+			},
+			"notice": "Allows registered voters to vote for candidates. Each address votes once.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ballot.sol": "Voting"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ballot.sol": {
+			"keccak256": "0xd5c64d9e67d74308eeeb67bed25fee58071e10e3146e7c36a01707dd452fc147",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://efc44ff937965addbba657fe7fb7ba26a30247d2d7f13987da688cd8e78c1863",
+				"dweb:/ipfs/QmecP5BAYBrfrVyCJuEVTZydm6Sz7dVpEEC4F3T4yBzezb"
+			]
+		}
+	},
+	"version": 1
+}

@@ -13,8 +13,10 @@ A simple yet powerful voting system where the contract owner registers voters, a
 
 ## Prerequisites
 
-- Node.js (v16+)
+- Node.js 
 - npm or yarn
 - MetaMask (for frontend interaction)
 - A local blockchain (Hardhat network) or a testnet (Sepolia, Goerli)
+
+##simpler approach import the repository to https://remix.ethereum.or
 
